@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+
+{% block title %}
+Início
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+
+{% block main_content %}<div stfloat: right>
+    
+    
+    <div class="container">
+      <!-- Example row of columns -->
+      {% for texto in texto %}
+      <div class="row">
+        <div class="col-md-4">
+          <h2>{{texto.titulo}}</h2>
+          <p> {{texto.descricao}}</p>
+          <p><a class="btn btn-default" href="/textoCompleto/{{texto.id}}" role="button">ver mais detalhes &raquo;</a></p>
+           
+        </div>
+        <!--div class="col-md-4">
+          <h2>América vence fora de casa e se classifica em primeiro do grupo</h2>
+          <p>América venceu o Murici por 2 a 0 na noite deste domingo, 25, no estádio José Gomes, em Alagoas. Os gols foram marcados por Tadeu e Richardson. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Hamilton, sobre Vettel: “Se quer provar que é homem, podemos fazer fora do carro”</h2>
+          <p>Os pilotos se preparavam para uma das relargadas do GP do Azerbaijão, realizado neste domindo no Circuito de rua de Baku. Líder da prova, Lewis Hamilton sofria com a lentidão do safety car à frente, o que fazia com que seus pneus esfriassem. Assim começou a diminuir o ritmo para pegar distância do carro de segurança e poder ter mais espaço para arrancadas que lhe dessem mais calor nos compostos. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div-->
+      {% endfor %}
+      </div>
+    </div></div>
+
+     
+{% endblock %}

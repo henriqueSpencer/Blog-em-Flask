@@ -1,0 +1,88 @@
+{% extends "base.html" %} 
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+{% endblock %}
+
+{% block main_content %}
+	<div class="container">
+
+    	<div class="blog-header">
+	        <h1 class="blog-title">{{ titulo }}</h1>
+	        <p class="lead blog-description">{{ descricao }}</p>
+      	</div>
+
+	    <div class="row">
+
+	        <div class="col-sm-8 blog-main">
+
+	        	<div class="blog-post">
+		            <!--h2 class="blog-post-title">Sample blog post</h2-->
+		            <p class="blog-post-meta" style="font-weight:lighter">{{ autores }}</p>
+
+		            <p>{{ texto }}</p>
+		            <!--p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+		            <hr>
+		            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p-->
+		            <!--blockquote>
+		              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		            </blockquote-->
+	            </div>
+			</div>
+		</div>
+	</div>
+	<br/><br/><br/><br/><br/>
+	<hr>
+	<br/>
+	<h2 class="form-signin-heading">Comentários da Notícia:</h2>
+	<br>
+	<table class="table table-striped">
+        {% for comentario in comentario %}
+            <tr>
+                <td>{{comentario.comentario}}</td>
+            </tr>
+        {% endfor %} 
+         		
+    </table>
+
+	<div class="container">
+	  <form class="form-signin" method="POST" action="/textoCompleto/{{ id }}">
+	    <!--h2 class="form-signin-heading">Comentários da Notícia:</h2-->
+	    {{ form.hidden_tag() }}
+	    {{ wtf.form_field(form.comentario) }}
+	    <span class="input-group-btn">
+	    <button class="btn btn-default" type="submit">Comentar</button>
+	    </span>
+	  </form>
+	</div> <!-- /container -->
+	<!--a href=" /comentario/{{ id }}">cadastrar os caras </a-->
+<!--div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Search for...">
+    </div><! /input-group -->
+<!-- /.col-lg-6 -->
+
+      	
+{% endblock %}
+
+<!--div class="container">
+
+  <form class="form-signin" method="POST" action="/signup">
+    <h2 class="form-signin-heading">Sign Up</h2>
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.username) }}
+    {{ wtf.form_field(form.email) }}
+    {{ wtf.form_field(form.password) }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+
+</div> < /container -->

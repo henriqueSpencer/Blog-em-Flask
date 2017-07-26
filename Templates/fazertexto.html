@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+escrevaTexto
+{% endblock %}
+
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+{% endblock %}
+
+{% block main_content %}
+<div class="container">
+
+  <form class="form-signin" method="POST" action="/fazertexto">
+    <h2 class="form-signin-heading">Escreva uma matéria:</h2>
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.titulo) }}
+    {{ wtf.form_field(form.texto) }}
+    {{ wtf.form_field(form.descricao) }}
+    {{ wtf.form_field(form.coautores) }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar Matéria</button>
+  </form>
+
+</div> <!-- /container -->
+{% endblock %}

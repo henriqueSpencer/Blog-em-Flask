@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+entrada
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+
+{% block content %}
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="{{ url_for('index') }}">BlogFODA</a>
+	        </div>
+	        <div id="navbar" class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav" style=" float: right">
+	            <!--li class="active"><a href="{{ url_for('index') }}">Home</a></li-->
+	            <li><a href="{{ url_for('login') }}">Entrar</a></li>
+	            <li><a href="{{ url_for('signup') }}">Cadastrar</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	</nav>
+	{%block main_content%}{%endblock%}
+
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<hr>
+
+      <footer>
+        <p>&copy; feito por alunos do irfn</p>
+      </footer>
+    </div>
+{%endblock%}
