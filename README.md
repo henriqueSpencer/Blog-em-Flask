@@ -6,13 +6,13 @@ um simples blog usando flask
 abra o terminal e digite nele :
 
 	
-	- $ virtualenv novaPasta
-	- $ cd novaPasta
-	- $ source bin/activate
-	- $
-	- $ git clone https://github.com/henriqueSpencer/Blog-em-Flask.git novaPasta
-	- $ cd novaPasta
-	- $ pip install -r requirements.txt
+	 $ virtualenv novaPasta
+	 $ cd novaPasta
+	 $ source bin/activate
+	 $
+	 $ git clone https://github.com/henriqueSpencer/Blog-em-Flask.git novaPasta
+	 $ cd novaPasta
+	 $ pip install -r requirements.txt
 	
 
 
