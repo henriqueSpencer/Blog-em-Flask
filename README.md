@@ -5,8 +5,13 @@ um simples blog usando flask
 ------------------
 abra o terminal e digite nele :
 
-	- $ git clone https://github.com/henriqueSpencer/Blog-em-Flask.git nomePasta
-	- $ cd nomePasta
+	- $ # criar novo ambiente virtual
+	- $ virtualenv novaPasta
+	- $ cd novaPasta
+	- $ source bin/activate
+	- $
+	- $ git clone https://github.com/henriqueSpencer/Blog-em-Flask.git novaPasta
+	- $ cd novaPasta
 	- $ pip install -r requirements.txt
 	
 
