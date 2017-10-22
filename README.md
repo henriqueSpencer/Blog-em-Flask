@@ -5,7 +5,7 @@ um simples blog usando flask
 ------------------
 abra o terminal e digite nele :
 
-	- $ # criar novo ambiente virtual
+	- # criar novo ambiente virtual
 	- $ virtualenv novaPasta
 	- $ cd novaPasta
 	- $ source bin/activate
