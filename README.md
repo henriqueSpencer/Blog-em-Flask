@@ -14,7 +14,7 @@ abra o terminal e digite nele :
 **Problemas conhecidos e possíveis melhorias**
 ------------------
 
-- Falta adicionar masis funcionalidades
+- Falta adicionar mais funcionalidades
 -
 - 
 
