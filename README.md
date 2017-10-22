@@ -25,12 +25,8 @@ abra o terminal e digite nele :
 abra o seu navegador e digite nele:
 	http://localhost:5000/
 	
-**Problemas conhecidos e possíveis melhorias**
-------------------
+<img width="1280" alt="screen shot 2017-10-22 at 18 32 47" src="https://user-images.githubusercontent.com/19451652/31867113-d2b5e0d2-b75f-11e7-84d5-2677b17087b8.png">
 
-- Falta adicionar mais funcionalidades
--
-- 
 
 ## Equipe
 Henrique spencer<br/>
