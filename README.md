@@ -5,17 +5,26 @@ um simples blog usando flask
 ------------------
 abra o terminal e digite nele :
 
-	
+	 # criando ambiente virtual para isolar a aplicacao
 	 $ virtualenv novaPasta
 	 $ cd novaPasta
 	 $ source bin/activate
 	 $
-	 $ git clone https://github.com/henriqueSpencer/Blog-em-Flask.git novaPasta
-	 $ cd novaPasta
+	 $ git clone https://github.com/henriqueSpencer/Blog-em-Flask.git novaPasta2
+	 $ cd novaPasta2
 	 $ pip install -r requirements.txt
+	 
+**Como executar**
+------------------
+abra o terminal e digite nele :
+
+	$ cd novaPasta/novapasta2
+	$ source bin/activate
+	$ python main.py
 	
-
-
+abra o seu navegador e digite nele:
+	http://localhost:5000/
+	
 **Problemas conhecidos e possíveis melhorias**
 ------------------
 
