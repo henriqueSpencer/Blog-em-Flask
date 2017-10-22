@@ -19,7 +19,7 @@ abra o terminal e digite nele :
 - 
 
 ## Equipe
-Henrique spencer
+Henrique spencer<br/>
 ![eu copy](https://user-images.githubusercontent.com/19451652/30993612-2d93c5f6-a486-11e7-93ad-282acad1fb00.jpg)
 
  
