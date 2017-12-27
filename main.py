@@ -8,6 +8,9 @@ from flask_sqlalchemy import SQLAlchemy
 #o sqlalchema cria uma interface entre o banco e uma class python
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from datetime import date
+
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisisupposedtobesecret!'
@@ -23,8 +26,6 @@ class User(UserMixin, db.Model):
 	username = db.Column(db.String(15), unique= True)
 	email = db.Column(db.String(50), unique= True)
 	password = db.Column(db.String(80))
-
-
 	#so para qunado criar um novo usuario ja passar os seus valores
 	#def __init__(self, username, email, password):
 	#	self.username = username
@@ -39,12 +40,14 @@ class Texto(db.Model):
 	descricao = db.Column(db.String(200))
 	coautores = db.Column(db.String(80))
 	autor = db.Column(db.Integer)
-
+	data = db.Column(db.String(80))
+	
 class Comentario(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	idpost =db.Column(db.Integer)
 	comentario= db.Column(db.String(200))
 #########################################################	
+#db.create_all()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -65,12 +68,15 @@ class RegisterText(FlaskForm):
 	#texto = StringField('texto', validators=[InputRequired()], widget=TextArea())
 	texto = StringField('texto', validators=[InputRequired(), Length(min=4, max =1000)])
 	descricao = StringField('descricao', validators=[InputRequired(), Length(min=4, max =200)])
-	coautores = StringField('coautores', validators=[InputRequired(), Length(min=8, max =80)])
-	
+	#coautores = StringField('coautores', validators=[InputRequired(), Length(min=8, max =80)])
+	#coautores = QuerySelectField('coautores', query_factory=lambda: User.query.all())
+	#coautores = QuerySelectField('Select Users', query_factory=User.query.all, get_label=lambda u: u.username)
+	coautores = QuerySelectField(u'coautores', query_factory=lambda: User.query.all(), get_label='username')
 
 class RegisterComentario(FlaskForm):
 	comentario = StringField('comentario', validators=[InputRequired(), Length(min=4, max =200)])
-	
+
+
 @app.route('/')
 def index():
 	texto = Texto.query.all()
@@ -130,7 +136,8 @@ def fazertexto():
 	form = RegisterText()
 	aul = current_user.id
 	if form.validate_on_submit():
-		new_Texto = Texto(titulo=form.titulo.data, texto=form.texto.data, descricao=form.descricao.data, coautores=form.coautores.data, autor=aul)
+		hj = date.today()
+		new_Texto = Texto(titulo=form.titulo.data, texto=form.texto.data, descricao=form.descricao.data, coautores=form.coautores.data, autor=aul, data=hj)
 		#new_user = User(username=form.username.data, email=form.username.data, password=form.password.data)
 		db.session.add(new_Texto)
 		db.session.commit()
@@ -153,6 +160,7 @@ def abrirTexto(id):
 	autores= "autor: " + user.username + ", coautores: " + textt.coautores 
 	descricao= textt.descricao
 	texto= textt.texto
+	data = textt.data
 
 	form = RegisterComentario()
 	
@@ -167,7 +175,7 @@ def abrirTexto(id):
 		return '<h1> New comentario has been create, porra </h1>'
 		#return '<h1>' + form.username.data + ' '+form.email.data + ' ' +form.password.data + '</h1>' 
 
-	return render_template('textoCompleto.html', titulo=titulo, autores=autores, texto=texto, descricao=descricao, id=id, form=form, comentario=comentario)
+	return render_template('textoCompleto.html', titulo=titulo, autores=autores, texto=texto, descricao=descricao, id=id, form=form, comentario=comentario, data=data)
 
 #select * from pessoas;
 
